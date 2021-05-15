@@ -1,3 +1,38 @@
+/**
+ *Submitted for verification at BscScan.com on 2021-02-26
+*/
+
+/**
+   #PIG
+   
+   #LIQ+#RFI+#SHIB+#DOGE, combine together to #PIG  
+
+    I make this #PIG to hand over it to the community.
+    Create the community by yourself if you are interested.   
+    I suggest a telegram group name for you to create: https://t.me/PigTokenBSC
+
+   Great features:
+   3% fee auto add to the liquidity pool to locked forever when selling
+   2% fee auto distribute to all holders
+   50% burn to the black hole, with such big black hole and 3% fee, the strong holder will get a valuable reward
+
+   I will burn liquidity LPs to burn addresses to lock the pool forever.
+   I will renounce the ownership to burn addresses to transfer #PIG to the community, make sure it's 100% safe.
+
+   I will add 0.999 BNB and all the left 49.5% total supply to the pool
+   Can you make #PIG 10000000X? 
+
+   1,000,000,000,000,000 total supply
+   5,000,000,000,000 tokens limitation for trade
+   0.5% tokens for dev
+
+   3% fee for liquidity will go to an address that the contract creates, 
+   and the contract will sell it and add to liquidity automatically, 
+   it's the best part of the #PIG idea, increasing the liquidity pool automatically, 
+   help the pool grow from the small init pool.
+
+ */
+
 pragma solidity ^0.6.12;
 // SPDX-License-Identifier: Unlicensed
 interface IERC20 {
@@ -390,8 +425,6 @@ library Address {
  * `onlyOwner`, which can be applied to your functions to restrict their use to
  * the owner.
  */
- 
- 
 contract Ownable is Context {
     address private _owner;
     address private _previousOwner;
@@ -680,7 +713,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
 }
 
 
-contract CowToken is Context, IERC20, Ownable {
+contract PigToken is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -698,14 +731,14 @@ contract CowToken is Context, IERC20, Ownable {
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
-    string private _name = "Cow Token";
-    string private _symbol = "COW";
+    string private _name = "Pig Token";
+    string private _symbol = "PIG";
     uint8 private _decimals = 9;
     
-    uint256 public _taxFee = 5;
+    uint256 public _taxFee = 2;
     uint256 private _previousTaxFee = _taxFee;
     
-    uint256 public _liquidityFee = 5;
+    uint256 public _liquidityFee = 3;
     uint256 private _previousLiquidityFee = _liquidityFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -734,7 +767,7 @@ contract CowToken is Context, IERC20, Ownable {
     constructor () public {
         _rOwned[_msgSender()] = _rTotal;
         
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F);
          // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
             .createPair(address(this), _uniswapV2Router.WETH());
